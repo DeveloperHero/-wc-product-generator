@@ -32,15 +32,11 @@ final class WooFaker_Main {
 	 * Constructor
 	 **/
 	private function __construct() {
-<<<<<<< HEAD
 
 		require_once 'includes/woo-options.php';
 		require_once 'includes/woo-menu.php';
 
 		
-=======
-		// $this->include_required_classes();
->>>>>>> 78655f500f179669d1617eb9eab479077ca70b0e
 		
 	}
 
@@ -66,7 +62,6 @@ final class WooFaker_Main {
 	 * Include required classes. 
 	*/
 	public function include_required_classes() {
-		require_once 'includes/wc-options.php';
 
 	}
 }
