@@ -22,35 +22,40 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-final WooFaker_Main {
+final class WooFaker_Main {
 	/**
 	 * Object instance 
 	 */
-	private $_instance = null;
+	protected static $_instance = null;
 
 	/**
 	 * Constructor
 	 **/
 	private function __construct() {
 
+		require_once 'includes/woo-options.php';
+		require_once 'includes/woo-menu.php';
+
+		
+		
 	}
 
 	/**
 	 * Get instance
 	 */
 	public static function instance() {
-		if ( self::_instance == null ) {
-			self::_instance = new self;
+		if ( self::$_instance == null ) {
+			self::$_instance = new self();
 		}
 
-		return self::_instance;
+		return self::$_instance;
 	}
 
 	/**
 	 * define constants
 	 */
 	public function define_constants() {
-
+		define('WOOFAKER_VERSION' , '1.0');
 	}
 
 	/**

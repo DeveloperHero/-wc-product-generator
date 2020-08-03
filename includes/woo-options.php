@@ -44,7 +44,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
           */
          public function add_product_details($settings_tabs)
          {
-            $settings_tabs['product_details'] = __('Product Generator', 'wc-product-generator');
+            $settings_tabs['product_details'] = __('Product Generator', 'woofaker');
 
             return
                $settings_tabs;
@@ -71,7 +71,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
          {
             $settings = array(
                'section_title' => array(
-                  'name' => __('WooCommerce Product Generator', 'wc-product-generator'),
+                  'name' => __('WooCommerce Product Generator', 'woofaker'),
                   'type' => 'title',
                   'desc' => '',
                   'id' => 'wc_product_generator_section_title',
@@ -79,34 +79,34 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
                ),
 
                'product_title' => array(
-                  'name' => __('Product title', 'wc-product-generator'),
+                  'name' => __('Product title', 'woofaker'),
                   'type' => 'text',
                   'dir' => 'ltr',
                   'placeholder' => 'Product title',
-                  'desc_tip' => __('Title of your product', 'wc-product-generator'),
+                  'desc_tip' => __('Title of your product', 'woofaker'),
                   'id' => 'wc_product_generator_product_title',
                ),
 
                'product_description' => array(
-                  'name' => __('Product description', 'wc-product-generator'),
+                  'name' => __('Product description', 'woofaker'),
                   'type' => 'textarea',
                   'dir' => 'ltr',
                   'placeholder' => 'Product description',
-                  'desc_tip' => __('Describe your product', 'wc-product-generator'),
+                  'desc_tip' => __('Describe your product', 'woofaker'),
                   'id' => 'wc_product_generator_product_description'
                ),
 
                'product_short_description' => array(
-                  'name' => __('Product short description', 'wc-product-generator'),
+                  'name' => __('Product short description', 'woofaker'),
                   'type' => 'textarea',
                   'dir' => 'ltr',
                   'placeholder' => 'Product short description',
-                  'desc_tip' => __('Shortly Describe your product', 'wc-product-generator'),
+                  'desc_tip' => __('Shortly Describe your product', 'woofaker'),
                   'id' => 'wc_product_generator_product_short_description',
                ),
 
                'submit' => array(
-                  'name' => __('submit data', 'wc-product-generator'),
+                  'name' => __('submit data', 'woofaker'),
                   'type' => 'button',
                   'id' => 'wc_product_generator_product_button',
                ),
