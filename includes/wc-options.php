@@ -1,29 +1,7 @@
 <?php
 
-/**
- * AA WooCommerce Product Generator
- *
- * @package           PluginPackage
- * @author            MD IMTIAZ
- * @copyright         2020 MD IMTIAZ  
- * @license           GPL-2.0-or-later
- *
- * @wordpress-plugin
- * Plugin Name:       AA wc Product Generator
- * Plugin URI:        https://wpmaestro.net/AA-WooCommerce
- * Description:       Create WooCommerce product on plugin activation.
- * Version:           1.0
- * Requires at least: 5.3
- * Requires PHP:      7.2
- * Author:            MD IMTIAZ
- * Author URI:        https://wpmaestro.net
- * Text Domain:       wc-product-generator
- * License:           GPL v2 or later
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- */
-
 if (!defined('ABSPATH')) {
-   die('Silly Kid');
+   wp_die();
 }
 
 if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
