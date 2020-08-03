@@ -3,9 +3,9 @@
 /**
  * WooFaker
  *
- * @package           PluginPackage
+ * @package           WooFaker
  * @author            MD IMTIAZ
- * @copyright         2020 MD IMTIAZ  
+ * @copyright         2020 MD IMTIAZ
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
@@ -24,7 +24,7 @@
 
 final class WooFaker_Main {
 	/**
-	 * Object instance 
+	 * Object instance
 	 */
 	protected static $_instance = null;
 
@@ -32,12 +32,12 @@ final class WooFaker_Main {
 	 * Constructor
 	 **/
 	private function __construct() {
+		if ( $this->check_woo_active() === false ) {
+			return;
+		}
 
-		require_once 'includes/woo-options.php';
-		require_once 'includes/woo-menu.php';
-
-		
-		
+		$this->define_constants();
+		$this->include_required_classes();
 	}
 
 	/**
@@ -55,14 +55,21 @@ final class WooFaker_Main {
 	 * define constants
 	 */
 	public function define_constants() {
-		define('WOOFAKER_VERSION' , '1.0');
+		define( 'WOOFAKER_VERSION', '1.0' );
+		define( 'WOOFAKER_PATH', plugin_dir_url( __FILE__ ) );
+
 	}
 
 	/**
-	 * Include required classes. 
-	*/
+	 * Include required classes.
+	 */
 	public function include_required_classes() {
+		// require_once 'includes/woo-options.php';
+		require_once 'includes/woo-menu.php';
+	}
 
+	public function check_woo_active() {
+		return (bool) in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
 	}
 }
 
