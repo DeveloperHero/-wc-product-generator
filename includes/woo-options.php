@@ -1,27 +1,28 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	wp_die();
 }
 
-if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 	// only run if there's no other class with this name
 
-	if ( ! class_exists( 'Wc_Product_Generator' ) ) {
+	if (!class_exists('Wc_Product_Generator')) {
 
-		class Wc_Product_Generator {
+		class Wc_Product_Generator
+		{
 
 			/**
 			 * Initialize the plugin
 			 */
-			public function __construct() {
+			public function __construct()
+			{
 				// add_action('init', array($this, 'init'));
-				add_filter( 'woocommerce_settings_tabs_array', array( $this, 'add_product_details' ), 50 );
+				add_filter('woocommerce_settings_tabs_array', array($this, 'add_product_details'), 50);
 
-				add_action( 'woocommerce_settings_product_details', array( $this, 'add_product_settings' ), 10 );
+				add_action('woocommerce_settings_product_details', array($this, 'add_product_settings'), 10);
 
-				add_action( 'init', array( $this, 'init' ) );
-
+				add_action('init', array($this, 'init'));
 			}
 
 			/**
@@ -29,7 +30,8 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 			 *
 			 * @return [type]
 			 */
-			public function init() {
+			public function init()
+			{
 				// $this->create_woocommerce_product();
 			}
 
@@ -42,8 +44,9 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 			 *
 			 * @return $settings_tabs
 			 */
-			public function add_product_details( $settings_tabs ) {
-				$settings_tabs['product_details'] = __( 'Product Generator', 'woofaker' );
+			public function add_product_details($settings_tabs)
+			{
+				$settings_tabs['product_details'] = __('Product Generator', 'woofaker');
 
 				return $settings_tabs;
 			}
@@ -53,12 +56,13 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 			 *
 			 * @return
 			 */
-			public function add_product_settings() {
-				woocommerce_admin_fields( self::get_settings() );
+			public function add_product_settings()
+			{
+				woocommerce_admin_fields(self::get_settings());
 
-				?>
-			<button type="submit" class="button-primary woocommerce-save-button" value="Upload" >Upload product</button>
-				<?php
+?>
+				<button type="submit" class="button-primary woocommerce-save-button" value="Upload">Upload product</button>
+<?php
 			}
 
 			/**
@@ -66,10 +70,11 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 			 *
 			 * @return array
 			 */
-			public static function get_settings() {
+			public static function get_settings()
+			{
 				$settings = array(
 					'section_title'             => array(
-						'name'    => __( 'WooCommerce Product Generator', 'woofaker' ),
+						'name'    => __('WooCommerce Product Generator', 'woofaker'),
 						'type'    => 'title',
 						'desc'    => '',
 						'id'      => 'wc_product_generator_section_title',
@@ -77,34 +82,34 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 					),
 
 					'product_title'             => array(
-						'name'        => __( 'Product title', 'woofaker' ),
+						'name'        => __('Product title', 'woofaker'),
 						'type'        => 'text',
 						'dir'         => 'ltr',
 						'placeholder' => 'Product title',
-						'desc_tip'    => __( 'Title of your product', 'woofaker' ),
+						'desc_tip'    => __('Title of your product', 'woofaker'),
 						'id'          => 'wc_product_generator_product_title',
 					),
 
 					'product_description'       => array(
-						'name'        => __( 'Product description', 'woofaker' ),
+						'name'        => __('Product description', 'woofaker'),
 						'type'        => 'textarea',
 						'dir'         => 'ltr',
 						'placeholder' => 'Product description',
-						'desc_tip'    => __( 'Describe your product', 'woofaker' ),
+						'desc_tip'    => __('Describe your product', 'woofaker'),
 						'id'          => 'wc_product_generator_product_description',
 					),
 
 					'product_short_description' => array(
-						'name'        => __( 'Product short description', 'woofaker' ),
+						'name'        => __('Product short description', 'woofaker'),
 						'type'        => 'textarea',
 						'dir'         => 'ltr',
 						'placeholder' => 'Product short description',
-						'desc_tip'    => __( 'Shortly Describe your product', 'woofaker' ),
+						'desc_tip'    => __('Shortly Describe your product', 'woofaker'),
 						'id'          => 'wc_product_generator_product_short_description',
 					),
 
 					'submit'                    => array(
-						'name' => __( 'submit data', 'woofaker' ),
+						'name' => __('submit data', 'woofaker'),
 						'type' => 'button',
 						'id'   => 'wc_product_generator_product_button',
 					),
@@ -123,16 +128,17 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 			 *
 			 * @return
 			 */
-			public function create_woocommerce_product() {
+			public function create_woocommerce_product()
+			{
 				$settings   = self::get_settings();
 				$wc_product = new WC_Product_Simple();
 
-				$wc_product->set_name( uniqid( $settings['product_title'] ) );
+				$wc_product->set_name(uniqid($settings['product_title']));
 
-				$wc_product->set_description( uniqid( $settings['product_description'] ) );
+				$wc_product->set_description(uniqid($settings['product_description']));
 
-				$wc_product->set_short_description( uniqid( $settings['product_short_description'] ) );
-				$wc_product->set_slug( uniqid() );
+				$wc_product->set_short_description(uniqid($settings['product_short_description']));
+				$wc_product->set_slug(uniqid());
 				$wc_product->save();
 			}
 		}

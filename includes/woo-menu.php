@@ -37,7 +37,7 @@ class WOO_Faker_Menu
 			return;
 		}
 
-		if ( ! wp_verify_nonce($_POST['_wpnonce'], 'woofaker_submit_product_gen') ) {
+		if (!wp_verify_nonce($_POST['_wpnonce'], 'woofaker_submit_product_gen')) {
 			wp_die('You are not authorized to access this page.');
 		}
 
