@@ -61,6 +61,7 @@ final class WooFaker_Main
 	{
 		define('WOOFAKER_VERSION', '1.0');
 		define('WOOFAKER_PATH', plugin_dir_url(__FILE__));
+		define('WOOFAKER_ASSETS', WOOFAKER_PATH . '/assets');
 	}
 
 	/**
@@ -70,6 +71,7 @@ final class WooFaker_Main
 	{
 		// require_once 'includes/woo-options.php';
 		require_once 'includes/woo-menu.php';
+		require_once 'includes/woo-assets.php';
 	}
 
 	public function check_woo_active()
