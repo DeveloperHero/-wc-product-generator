@@ -72,6 +72,8 @@ final class WooFaker_Main
 		// require_once 'includes/woo-options.php';
 		require_once 'includes/woo-menu.php';
 		require_once 'includes/woo-assets.php';
+		require_once 'includes/woo-generate.php';
+
 	}
 
 	public function check_woo_active()

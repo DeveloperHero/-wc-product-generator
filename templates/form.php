@@ -6,26 +6,18 @@ $_options = get_option('__woofaker_options');
 	<!-- define form fields -->
 	<table class="form-table">
 
-		</div>
+	</div>
 		<?php
-		if (!empty($this->errors['product_type'])) {
+		
+		if (!empty($this->errors['product_type']) || !empty($this->errors['product_title'])) {
 		?>
 			<div class="notice update-nag is-dismissible">
 			<?php
-			echo $this->errors['product_type'];
+			echo $this->errors['product_type'] . '<div>' . $this->errors['product_title'] . '</div>';
 		}
 			?>
-
-			<?php
-			if (!empty($this->errors['product_title'])) {
-			?>
-				<div class="notice update-nag is-dismissible">
-				<?php
-				echo $this->errors['product_title'];
-			}
-				?>
-				</div>
-
+		</div>
+		
 				<tbody>
 					<tr class="row">
 						<th scope="row">
