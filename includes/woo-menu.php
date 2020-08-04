@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
  */
 class WOO_Faker_Menu
 {
-	public $errors =[];
+	public $errors = [];
 	public function __construct()
 	{
 		add_action('init', array($this, 'init'));
@@ -42,12 +42,16 @@ class WOO_Faker_Menu
 		}
 
 		update_option('__woofaker_options', array(
+			'create_products_title' 	=> esc_attr($_POST['create_products_title']),
 			'create_simple_products' 	=> esc_attr($_POST['create_simple_products']),
 			'create_variable_products'  => esc_attr($_POST['create_variable_products']),
 			'create_grouped_products'   => esc_attr($_POST['create_grouped_products']),
 			'create_external_products'  => esc_attr($_POST['create_external_products']),
 			'add_random_images'    	    => esc_attr($_POST['add_random_images']),
 		));
+
+		$product_title    = isset($_POST['create_products_title']) ? sanitize_text_field($_POST['create_products_title']) : '';
+
 
 		$simple    = isset($_POST['create_simple_products']) ? sanitize_text_field($_POST['create_simple_products']) : '';
 
@@ -57,9 +61,12 @@ class WOO_Faker_Menu
 
 		$external   = isset($_POST['create_external_products']) ? sanitize_text_field($_POST['create_external_products']) : '';
 
-		if(empty($simple) && empty($variable) && empty($grouped) && empty($external)) {
-			$this->errors['product_type'] = __('Please select a product type' , 'woofaker');
-			
+		if (empty($simple) && empty($variable) && empty($grouped) && empty($external)) {
+			$this->errors['product_type'] = __('Please select a product type', 'woofaker');
+		}
+
+		if (empty($product_title)) {
+			$this->errors['product_title'] = __('Please provide a product title', 'woofaker');
 		}
 	}
 }
