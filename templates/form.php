@@ -1,3 +1,6 @@
+<?php
+ $_options = get_option('__woofaker_options');
+?>
 <form method="post" action="<?php echo admin_url( 'tools.php?page=woofaker-product-generator' ); ?>">
 
 	<!-- define form fields -->
@@ -21,7 +24,7 @@
 					</label>
 				</th>
 				<td>
-					<input type="checkbox" name="create_simple_products" id="create_simple_products" class="regular-text" value="yes">
+					<input type="checkbox" <?php echo ! empty( $_options['create_simple_products'] ) && $_options['create_simple_products']  == 'yes' ? "checked='checked'" : ''; ?> name="create_simple_products" id="create_simple_products" class="regular-text" value="yes">
 					<?php _e( 'Simple product', 'woofaker' ); ?>
 					<br>
 
