@@ -37,7 +37,7 @@ class WOO_Faker_Menu
 			return;
 		}
 
-		if (!wp_verify_nonce($_POST['_wpnonce'], 'woofaker_submit_product_gen')) {
+		if ( ! wp_verify_nonce($_POST['_wpnonce'], 'woofaker_submit_product_gen') ) {
 			wp_die('You are not authorized to access this page.');
 		}
 
@@ -53,13 +53,10 @@ class WOO_Faker_Menu
 		$product_title    = isset($_POST['create_products_title']) ? sanitize_text_field($_POST['create_products_title']) : '';
 
 
-		$simple    = isset($_POST['create_simple_products']) ? sanitize_text_field($_POST['create_simple_products']) : '';
-
-		$variable    = isset($_POST['create_variable_products']) ? sanitize_text_field($_POST['create_variable_products']) : '';
-
+		$simple  = isset($_POST['create_simple_products']) ? sanitize_text_field($_POST['create_simple_products']) : '';
+		$variable = isset($_POST['create_variable_products']) ? sanitize_text_field($_POST['create_variable_products']) : '';
 		$grouped = isset($_POST['create_grouped_products']) ? sanitize_textarea_field($_POST['create_grouped_products']) : '';
-
-		$external   = isset($_POST['create_external_products']) ? sanitize_text_field($_POST['create_external_products']) : '';
+		$external = isset($_POST['create_external_products']) ? sanitize_text_field($_POST['create_external_products']) : '';
 
 		if (empty($simple) && empty($variable) && empty($grouped) && empty($external)) {
 			$this->errors['product_type'] = __('Please select a product type', 'woofaker');
