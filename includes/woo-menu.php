@@ -48,15 +48,7 @@ class WOO_Faker_Menu
 			'add_random_images'    	    => esc_attr($_POST['add_random_images']),
 		));
 
-		$simple      = isset($_POST['create_simple_products']) ? intval($_POST['create_simple_products']) : 0;
-
-		$variable    = isset($_POST['create_variable_products']) ? sanitize_text_field($_POST['create_variable_products']) : '';
-
-		$grouped = isset($_POST['create_grouped_products']) ? sanitize_textarea_field($_POST['create_grouped_products']) : '';
-
-		$external   = isset($_POST['create_external_products']) ? sanitize_text_field($_POST['create_external_products']) : '';
-
-		$images   = isset($_POST['add_random_images']) ? $_POST['add_random_images'] : '';
+		
 	}
 }
 

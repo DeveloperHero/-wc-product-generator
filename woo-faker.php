@@ -22,7 +22,8 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-final class WooFaker_Main {
+final class WooFaker_Main
+{
 	/**
 	 * Object instance
 	 */
@@ -31,8 +32,9 @@ final class WooFaker_Main {
 	/**
 	 * Constructor
 	 **/
-	private function __construct() {
-		if ( $this->check_woo_active() === false ) {
+	private function __construct()
+	{
+		if ($this->check_woo_active() === false) {
 			return;
 		}
 
@@ -43,8 +45,9 @@ final class WooFaker_Main {
 	/**
 	 * Get instance
 	 */
-	public static function instance() {
-		if ( self::$_instance == null ) {
+	public static function instance()
+	{
+		if (self::$_instance == null) {
 			self::$_instance = new self();
 		}
 
@@ -54,22 +57,24 @@ final class WooFaker_Main {
 	/**
 	 * define constants
 	 */
-	public function define_constants() {
-		define( 'WOOFAKER_VERSION', '1.0' );
-		define( 'WOOFAKER_PATH', plugin_dir_url( __FILE__ ) );
-
+	public function define_constants()
+	{
+		define('WOOFAKER_VERSION', '1.0');
+		define('WOOFAKER_PATH', plugin_dir_url(__FILE__));
 	}
 
 	/**
 	 * Include required classes.
 	 */
-	public function include_required_classes() {
+	public function include_required_classes()
+	{
 		// require_once 'includes/woo-options.php';
 		require_once 'includes/woo-menu.php';
 	}
 
-	public function check_woo_active() {
-		return (bool) in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
+	public function check_woo_active()
+	{
+		return (bool) in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')));
 	}
 }
 
@@ -77,7 +82,8 @@ final class WooFaker_Main {
 /**
  * Get an instance of the main class.
  */
-function WooFaker() {
+function WooFaker()
+{
 	return WooFaker_Main::instance();
 }
 

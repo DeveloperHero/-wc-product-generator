@@ -22,19 +22,19 @@
 				</th>
 				<td>
 					<input type="checkbox" name="create_simple_products" id="create_simple_products" class="regular-text" value="create_simple_products">
-					<?php _e('Simple product' , 'woofaker') ; ?>
+					<?php _e('Simple product', 'woofaker'); ?>
 					<br>
 
 					<input type="checkbox" name="create_variable_products" id="create_variable_products" class="regular-text" value="create_variable_products">
-					<?php _e('Variable product' , 'woofaker') ; ?>
+					<?php _e('Variable product', 'woofaker'); ?>
 					<br>
 
 					<input type="checkbox" name="create_grouped_products" id="create_grouped_products" class="regular-text" value="create_grouped_products">
-					<?php _e('Grouped product' , 'woofaker') ; ?>
+					<?php _e('Grouped product', 'woofaker'); ?>
 					<br>
 
 					<input type="checkbox" name="create_external_products" id="create_external_products" class="regular-text" value="create_external_products">
-					<?php _e('External product' , 'woofaker') ; ?>
+					<?php _e('External product', 'woofaker'); ?>
 					<br>
 				</td>
 			</tr>
@@ -42,16 +42,16 @@
 			<tr class="row">
 				<th scope="row">
 					<label for="name">
-					<?php _e('Random Image on Product' , 'woofaker') ; ?>
+						<?php _e('Random Image on Product', 'woofaker'); ?>
 					</label>
 				</th>
 				<td>
-				<input type="checkbox" name="add_random_images" id="add_random_images" class="regular-text" value="add_random_images">
-					<?php _e('Yes' , 'woofaker') ; ?>
+					<input type="checkbox" name="add_random_images" id="add_random_images" class="regular-text" value="add_random_images">
+					<?php _e('Yes', 'woofaker'); ?>
 					<br>
 
 					<input type="checkbox" name="" id="" class="regular-text" value="">
-					<?php _e('No' , 'woofaker') ; ?>
+					<?php _e('No', 'woofaker'); ?>
 					<br>
 
 				</td>
