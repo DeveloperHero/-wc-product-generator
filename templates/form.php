@@ -56,15 +56,22 @@
 
 				</td>
 			</tr>
+
 	</table>
+
+	
+		<?php if(!empty($this->errors['product_type'])) {
+			?>
+			<div class="update-nag notice"> <?php echo  $this->errors['product_type'];
+		}
+		?>
+	</div>
 
 	<?php wp_nonce_field('woofaker_submit_product_gen'); ?>
 	<?php submit_button(__('Submit', 'woofaker'), 'primary', 'submit_button');
 	echo '<pre>';
 	print_r(get_option('__woofaker_options'));
-	echo '</pre>';
-
-	?>
+	echo '</pre>'; ?>
 
 
 </form>
